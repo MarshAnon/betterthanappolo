@@ -7,6 +7,17 @@ xDirection = 0;
 
 yVector = 0;
 //grav levels
-grv = 1; 
-JumpForce = -10;
+grv = .5; 
+jumpForce = -10;
 
+//coins and points
+global.coins = 0
+global.points = 0
+
+//invincible
+isInvincible = false;
+
+//hp
+hp = 6;
+
+invTimer=2;

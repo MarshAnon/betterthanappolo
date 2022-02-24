@@ -4,8 +4,13 @@ left = keyboard_check(vk_left);
 jump = keyboard_check_pressed(vk_space);
 
 //what direction player goin
-
-
+if(isInvincible)
+{
+invTimer -=1/room_speed;
+	if(invTimer<=0)
+	{invTimer=2;
+	isInvincible=false;}
+}
 //horizontal move
 xDirection = right - left;
 xVector = xDirection * xSpeed;
@@ -37,4 +42,15 @@ if(place_meeting(x, y + yVector, oWall))
 	} 
 y = y + yVector;
 
-                                        
+        //if we are touching oWall and we press the jump key jump
+if (place_meeting(x, y + 1, oWall) and (jump)) 
+{
+  yVector = jumpForce; 
+} 
+
+//die in a pit and reset
+if (y >= room_height)
+
+{ 
+   PlayerDeath();
+}
